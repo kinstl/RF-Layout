@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="reset.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="index.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="icon" href="/resources/Logo.png" type="image/x-icon" />
+
+  <title>Модуль 3: Структура проекта</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__container">
+      <button class="header__logo js-logo-btn">
+        <img class="logo__img" src="/resources/Logo.png" alt="Logo" />
+        <p class="logo__text">mangcoding Store</p>
+      </button>
+      <div class="header__menu menu">
+        <a class="menu__item menu__item_active" href="#">Home</a>
+        <a class="menu__item" href="#">Course</a>
+        <a class="menu__item" href="#">About Us</a>
+        <a class="menu__item" href="#">Article</a>
+        <a class="menu__item" href="#">Contact</a>
+      </div>
+      <button class="header__btn-login btn-login login-open">Log In</button>
+      <button class="header__btn-reg btn-reg btn">Register</button>
+    </div>
+  </header>
+
+  <!-- Log in popup-->
+  <div class="login">
+    <div class="login__body">
+      <div class="login__content">
+        <button class="login__logo js-logo-btn">
+          <img class="logo__img" src="/resources/Logo.png" alt="Logo" />
+          <p class="logo__text">mangcoding Store</p>
+        </button>
+        <form class="login__form" action="/" method="get">
+          <div class="login__main">
+            <div class="login__title">Log In</div>
+            <div class="login__email">
+              <label class="email__label" for="email">Enter your email</label>
+              <input class="email__input" type="email" name="email" placeholder="login@gmail.com" required>
+            </div>
+            <div class="login__password">
+              <label class="password__label" for="password">Enter your password</label>
+              <input class="password__input" type="password" name="password" minlength="6" placeholder="••••••"
+                required>
+              <button class="password__btn">
+                <img class="password__img-see" src="/resources/password-open.png" alt="See Password">
+                <img class="password__img-hide hide" src="/resources/password-close.png" alt="Hide Password">
+              </button>
+            </div>
+            <button class="login__btn btn" type="submit">Log In</button>
+          </div>
+        </form>
+        <button class="login__close close-popup">
+          <img src="/resources/login-close.png" alt="Close">
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Registration popup -->
+  <div class="registration">
+    <div class="registration__body">
+      <div class="registration__content">
+        <button class="login__logo js-logo-btn">
+          <img class="logo__img" src="/resources/Logo.png" alt="Logo" />
+          <p class="logo__text">mangcoding Store</p>
+        </button>
+        <div class="registration__swiper">
+          <div class="registration__pagination swiper__pagination"></div>
+          <h2 class="registration__title">Registration</h2>
+          <p class="registration__description">
+            Fill in the registration data. It will take a couple of minutes. All you need is a phone number and e-mail
+          </p>
+          <div class="registration__privacy">
+            <img class="privacy__img" src="/resources/privacy-img.png" alt="Privacy Img">
+            <p class="privacy__text">
+              We take privacy issues seriously. You can be sure that your personal data is securely protected.
+            </p>
+            <button class="privacy__close">
+              <img src="/resources/privacy-close.png" alt="Close">
+            </button>
+          </div>
+          <!-- 1 slide -->
+          <div class="registration__swiper-wrapper swiper-wrapper">
+            <div class="registration__swiper-slide swiper-slide">
+              <form class="registration__form" action="/" method="get">
+                <p class="registration__input-info">Enter your phone number</p>
+                <div class="registration__input-wrapper">
+                  <div class="registration__phone-code">
+                    <select class="phone-code__select">
+                      <option value="+7">+7</option>
+                      <option value="+1">+1</option>
+                      <option value="+86">+86</option>
+                    </select>
+                  </div>
+                  <input class="registration__phone-input" type="phone" placeholder="(123) 456-7891" required
+                    maxlength="14">
+                </div>
+              </form>
+              <div class="registration__btn-wrapper">
+                <button class="registration__next-button btn disabled" id="send-code-button" type="submit">Send
+                  Code</button>
+              </div>
+            </div>
+            <!-- 2 slide -->
+            <div class="registration__swiper-slide swiper-slide">
+              <form class="registration__form" action="/">
+                <p class="registration__input-info registration__input-info_code"></p>
+                <div class="registration__input-wrapper registration__input-wrapper_code">
+                  <input class="registration__code-input" type="text" placeholder="••••" required maxlength="4">
+                </div>
+                <button type="button" class="registration__code-resend">
+                  Resend Code
+                  <span class="registration__code-countdown"></span>
+                </button>
+              </form>
+              <div class="registration__btn-wrapper">
+                <button class="registration__next-button btn disabled" type="submit">Submit</button>
+              </div>
+            </div>
+            <!-- 3 slide -->
+            <div class="registration__swiper-slide swiper-slide">
+              <div class="registration__form">
+                <form class="registration__form-login" action="/">
+                  <p class="registration__input-info"></p>
+                  <div class="registration__input-wrapper registration__input-wrapper_login">
+                    <div class="login__email login__email_registration">
+                      <label class="email__label" for="email">Enter your email</label>
+                      <input class="email__input email__input_registration" type="email" name="email"
+                        placeholder="login@gmail.com" required>
+                    </div>
+                    <div class="login__password login__password_registration">
+                      <label class="password__label" for="password">Enter your password</label>
+                      <div class="password__input-wrapper">
+                        <input class="password__input password__input_registration" type="password" name="password"
+                          minlength="6" placeholder="••••••" required>
+                        <button class="password__btn password__btn_registration">
+                          <img class="password__img-see" src="/resources/password-open.png" alt="See Password">
+                          <img class="password__img-hide hide" src="/resources/password-close.png" alt="Hide Password">
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="registration__btn-wrapper">
+                    <button class="btn" type="submit">Register</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="registration__close close-popup">
+          <img src="/resources/login-close.png" alt="Close">
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- Play Video popup -->
+  <div class="video">
+    <div class="video__body">
+      <div class="video__content">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/zhpcgpqWc1Q" title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+        <button class="video__close close-popup">
+          <img src="/resources/login-close.png" alt="Close">
+        </button>
+      </div>
+    </div>
+  </div>
+  <!--  -->
+  <div class="begin">
+    <div class="begin__container">
+      <div class="begin__text">
+        <p class="begin__greet greet">
+          Let's
+          <span class="greet_highlight">&nbsp;Begin</span>
+        </p>
+        <h1 class="begin__title title">
+          Let's Find The Right
+          <span class="title_highlight">Course</span> For you
+        </h1>
+        <p class="begin__about about">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+          dignissim, sem non convallis molestie.
+        </p>
+        <div class="begin__buttons">
+          <button class="btn-reg btn">Register</button>
+          <button class="begin__btn-play-video">
+            <img src="/resources/play-video.png" alt="Play Video" />
+            Play Video
+          </button>
+        </div>
+      </div>
+      <img src="/resources/find-right-course.png" alt="Finding right course" />
+    </div>
+  </div>
+
+  <div class="product">
+    <div class="product__container">
+      <div class="product__text">
+        <p class="product__greet greet">WHAT WE GIVE</p>
+        <h1 class="product__title title">What Do You Get From Us</h1>
+        <p class="product__about about">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+          dignissim, sem non convallis molestie.
+        </p>
+      </div>
+      <!-- Swiper -->
+      <div class="cards swiper">
+        <div class="cards-wrapper swiper-wrapper">
+          <div class="cards__item swiper-slide">
+            <img class="cards__img" src="/resources/pro-teacher.png" alt="Professional Teacher" />
+            <p class="cards__title">Professional Teacher</p>
+            <p class="cards__about">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+              dignissim, sem non convallis molestie.
+            </p>
+          </div>
+          <div class="cards__item swiper-slide">
+            <img class="cards__img" src="/resources/course-certificate.png" alt="Course Certificate" />
+            <p class="cards__title">Course Certificate</p>
+            <p class="cards__about">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+              dignissim, sem non convallis molestie.
+            </p>
+          </div>
+          <div class="cards__item swiper-slide">
+            <img class="cards__img" src="/resources/interesting-learning.png" alt="Interesting Learning" />
+            <p class="cards__title">Interesting Learning</p>
+            <p class="cards__about">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+              dignissim, sem non convallis molestie.
+            </p>
+          </div>
+          <div class="cards__item swiper-slide cards__item_last">
+            <img class="cards__img" src="/resources/videos.png" alt="120 Videos Course" />
+            <p class="cards__title">120 Videos Course</p>
+            <p class="cards__about">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+              dignissim, sem non convallis molestie.
+            </p>
+          </div>
+        </div>
+        <div class="cards__buttons">
+          <button class="cards__btn cards__btn_left">
+            <img src="/resources/carousel-left.png" alt="Left" />
+          </button>
+          <button class="cards__btn cards__btn_right">
+            <img src="/resources/carousel-right.png" alt="Right" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="selected-course">
+    <div class="selected-course__container">
+      <img class="selected-course__img" src="/resources/people-taking-courses.png" alt="Selected Course" />
+      <div class="selected-course__text">
+        <p class="selected-course__greet greet">SELECTED COURSE</p>
+        <h1 class="selected-course__title title">People Taking Courses</h1>
+        <p class="selected-course__about about">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+          dignissim, sem non convallis molestie.
+        </p>
+        <div class="selected-course__stats stats">
+          <div class="stats__item">
+            <p class="stats__number">6,000</p>
+            <p class="stats__text">People Views</p>
+          </div>
+          <div class="stats__item">
+            <p class="stats__number">4,000</p>
+            <p class="stats__text">User</p>
+          </div>
+          <div class="stats__item stats__item_last">
+            <p class="stats__number">100</p>
+            <p class="stats__text">Course</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="available-courses">
+    <div class="available-courses__container">
+      <div class="available-courses__select">
+        <div class="available-courses__column">
+          <div class="item-course">
+            <div class="item-course__banner">
+              <img class="item-course__img" src="/resources/html-css-course.png" alt="HTML & CSS" />
+              <div class="item-course__sticker">Best Course</div>
+              <div class="item-course__price">$ 20 USD</div>
+            </div>
+            <div class="item-course__text">
+              <div class="item-course__container-left">
+                <h2 class="item-course__title">HTML & CSS</h2>
+                <p class="item-course__info">120 Videos&nbsp;&nbsp;2 Teacher</p>
+              </div>
+              <div class="item-course__container-right">
+                <p class="item-course__stats">1,500 Views</p>
+              </div>
+            </div>
+          </div>
+          <div class="item-course">
+            <div class="item-course__banner">
+              <img class="item-course__img" src="/resources/javascript-course.png" alt="JavaScript" />
+              <div class="item-course__sticker">Best Course</div>
+              <div class="item-course__price">$ 20 USD</div>
+            </div>
+            <div class="item-course__text">
+              <div class="item-course__container-left">
+                <h2 class="item-course__title">JavaScript</h2>
+                <p class="item-course__info">120 Videos&nbsp;&nbsp;2 Teacher</p>
+              </div>
+              <div class="item-course__container-right">
+                <p class="item-course__stats">1,500 Views</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="available-courses__column">
+          <div class="item-course">
+            <div class="item-course__banner">
+              <img class="item-course__img" src="/resources/photographer-course.png" alt="Photography" />
+              <div class="item-course__sticker">Best Course</div>
+              <div class="item-course__price">$ 20 USD</div>
+            </div>
+            <div class="item-course__text">
+              <div class="item-course__container-left">
+                <h2 class="item-course__title">Photography</h2>
+                <p class="item-course__info">120 Videos&nbsp;&nbsp;2 Teacher</p>
+              </div>
+              <div class="item-course__container-right">
+                <p class="item-course__stats">1,500 Views</p>
+              </div>
+            </div>
+          </div>
+          <div class="item-course">
+            <div class="item-course__banner">
+              <img class="item-course__img" src="/resources/graphic-design-course.png" alt="Graphic Design" />
+              <div class="item-course__sticker">Best Course</div>
+              <div class="item-course__price">$ 20 USD</div>
+            </div>
+            <div class="item-course__text">
+              <div class="item-course__container-left">
+                <h2 class="item-course__title">Graphic Design</h2>
+                <p class="item-course__info">120 Videos&nbsp;&nbsp;2 Teacher</p>
+              </div>
+              <div class="item-course__container-right">
+                <p class="item-course__stats">1,500 Views</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="available-courses__text">
+        <p class="available-courses__greet greet">AVAILABLE FOR YOU</p>
+        <h1 class="available-courses__title title">Available Courses</h1>
+        <p class="available-courses__about about">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+          dignissim, sem non convallis molestie.
+        </p>
+        <button class="available-courses__button btn">See All</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="reviews">
+    <h2 class="reviews__title">Reviews</h2>
+    <div class="reviews__container">
+      <div class="review">
+        <div class="review__decor"></div>
+        <div class="review__client-info">
+          <img class="review__client-img" src="resources/client-1.png" alt="Client Image">
+          <div class="review__client-text">
+            <p class="review__client-name">Friskidia</p>
+            <p class="review__client-class">Client</p>
+          </div>
+        </div>
+        <img class="review__rating" src="resources/client-stars.png" alt="Rating">
+        <p class="review__text">‟ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum dapibus luctus.
+          ”</p>
+      </div>
+      <div class="review review_second">
+        <div class="review__decor"></div>
+        <div class="review__client-info">
+          <img class="review__client-img" src="resources/client-2.png" alt="Client Image">
+          <div class="review__client-text">
+            <p class="review__client-name">Friskidia</p>
+            <p class="review__client-class">Client</p>
+          </div>
+        </div>
+        <img class="review__rating" src="resources/client-stars.png" alt="Rating">
+        <p class="review__text">‟ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum dapibus luctus.
+          ”</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer__column-left">
+      <button class="footer__logo js-logo-btn">
+        <img class="logo__img" src="/resources/Logo.png" alt="Logo" />
+        <p class="logo__text logo__text_footer">mangcoding Store</p>
+      </button>
+      <p class="footer__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mollis, justo nec porttitor
+        auctor, erat sapien faucibus lectus, vel tempor dolor augue et lectus. </p>
+      <div class="media-links">
+        <a class="media-links__img" href="#">
+          <img src="resources/facebook.png" alt="Facebook">
+        </a>
+        <a class="media-links__img" href="#">
+          <img src="resources/twitter.png" alt="Twitter">
+        </a>
+        <a class="media-links__img" href="#">
+          <img src="resources/linkedin.png" alt="LinkedIn">
+        </a>
+        <a class="media-links__img media-links__img_last" href="#">
+          <img src="resources/instagram.png" alt="Instagram">
+        </a>
+      </div>
+    </div>
+    <div class="footer__column-right">
+      <ul class="menu-column">
+        <li class="menu-column__item menu-column__item_active">
+          <a class="menu-column__link menu-column__link_active" href="#">Home</a>
+        </li>
+        <li class="menu-column__item">
+          <a class="menu-column__link" href="#">Product</a>
+        </li>
+        <li class="menu-column__item">
+          <a class="menu-column__link" href="#">Course</a>
+        </li>
+        <li class="menu-column__item">
+          <a class="menu-column__link" href="#">About Us</a>
+        </li>
+        <li class="menu-column__item">
+          <a class="menu-column__link" href="#">Log In</a>
+        </li>
+      </ul>
+      <ul class="menu-column">
+        <li class="menu-column__item menu-column__item_active">
+          <a class="menu-column__link menu-column__link_active" href="#">Courses</a>
+        </li>
+        <li class="menu-column__item">
+          <a class="menu-column__link" href="#">HTML & CSS</a>
+        </li>
+        <li class="menu-column__item">
+          <a class="menu-column__link" href="#">JavaScript</a>
+        </li>
+        <li class="menu-column__item">
+          <a class="menu-column__link" href="#">Photography</a>
+        </li>
+        <li class="menu-column__item">
+          <a class="menu-column__link" href="#">Graphic Design</a>
+        </li>
+      </ul>
+      <ul class="menu-column">
+        <li class="menu-column__item menu-column__item_active">
+          <a class="menu-column__link menu-column__link_active" href="#">Article</a>
+        </li>
+        <li class="menu-column__item">
+          <a class="menu-column__link" href="#">New</a>
+        </li>
+        <li class="menu-column__item">
+          <a class="menu-column__link" href="#">Old</a>
+        </li>
+        <li class="menu-column__item">
+          <a class="menu-column__link" href="#">Trend</a>
+        </li>
+        <li class="menu-column__item">
+          <a class="menu-column__link" href="#">Popular</a>
+        </li>
+      </ul>
+
+      <ul class="menu-column menu-column_last">
+        <li class="menu-column__item menu-column__item_active">
+          <a class="menu-column__link menu-column__link_active" href="#">Contact Us</a>
+        </li>
+        <li class="menu-column__item">
+          <a class="menu-column__link" href="#">CCdoc123@gmail.com</a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>
